@@ -11,17 +11,14 @@ const PageHeader = () => {
         <h1>Makinahgram</h1>
       </NavLink>
       <NavLink
+        exact
         to="/"
         className="page-header-home-link"
-        activeClassName="is-active"
+        activeClassName="active"
       >
         Home
       </NavLink>
-      <NavLink
-        to="/users/1"
-        className="account-link"
-        activeClassName="is-active"
-      >
+      <NavLink to="/users/1" className="account-link" activeClassName="active">
         My Account
       </NavLink>
     </header>
