@@ -1,6 +1,7 @@
 import React from "react";
 import axios from "axios";
 import Post from "./Post";
+import ProfileInfo from "./ProfileInfo";
 
 class Profile extends React.Component {
   state = {
@@ -33,39 +34,14 @@ class Profile extends React.Component {
     } = this.state.user;
     return (
       <div className="profile-page-container">
-        <div className="user-container">
-          <div className="profile">
-            <div className="profile-image">
-              <img src={thumbnail} className="profile-image" />
-            </div>
-            <div className="profile-user-settings">
-              <h1 className="profile-user-name">{name}</h1>
-              <button className="btn profile-edit-btn">Edit Profile</button>
-              <button
-                className="btn profile-settings-btn"
-                aria-label="profile settings"
-              >
-                <i className="fas fa-cog" aria-hidden="true" />
-              </button>
-            </div>
-            <div className="profile-stats">
-              <ul>
-                <li>
-                  <span className="profile-stat-count">{posts.length}</span>{" "}
-                  posts
-                </li>
-                <li>
-                  <span className="profile-stat-count">{followers}</span>{" "}
-                  followers
-                </li>
-                <li>
-                  <span className="profile-stat-count">{following}</span>{" "}
-                  following
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+        <ProfileInfo
+          name={name}
+          id={id}
+          followers={followers}
+          following={following}
+          thumbnail={thumbnail}
+          posts={posts}
+        />
         <div className="gallery">
           {posts.map(post => {
             const {

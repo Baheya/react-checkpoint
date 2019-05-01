@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from "axios";
-import Profile from "./Account";
+import Profile from "./Profile";
 import PageHeader from "./PageHeader";
 import PageFooter from "./PageFooter";
 import Posts from "./Posts";

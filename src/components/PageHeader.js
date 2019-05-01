@@ -19,7 +19,7 @@ class PageHeader extends React.Component {
           Home
         </NavLink>
         <NavLink
-          to="/users/2"
+          to="/users/1"
           className="account-link"
           activeClassName="is-active"
         >
