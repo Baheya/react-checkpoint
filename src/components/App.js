@@ -6,6 +6,7 @@ import PageHeader from "./PageHeader";
 import PageFooter from "./PageFooter";
 import Posts from "./Posts";
 import "../style.css";
+import Spinner from "./Spinner";
 
 class App extends React.Component {
   state = {
@@ -23,6 +24,9 @@ class App extends React.Component {
   }
 
   render() {
+    if (this.state.posts.length === 0) {
+      return <Spinner />;
+    }
     return (
       <div>
         <PageHeader />

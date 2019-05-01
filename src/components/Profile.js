@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import Post from "./Post";
 import ProfileInfo from "./ProfileInfo";
+import Spinner from "./Spinner";
 
 class Profile extends React.Component {
   state = {
@@ -22,7 +23,7 @@ class Profile extends React.Component {
 
   render() {
     if (!this.state.user) {
-      return <p>Loading...</p>;
+      return <Spinner />;
     }
     const {
       name,

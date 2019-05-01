@@ -265,3 +265,7 @@ body {
   justify-self: center;
   align-self: center;
 }
+
+.spinner {
+  text-align: center;
+}
