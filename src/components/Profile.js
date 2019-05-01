@@ -10,6 +10,10 @@ class Profile extends React.Component {
   };
 
   componentDidMount() {
+    this.getUser();
+  }
+
+  getUser = () => {
     const { id } = this.props.match.params;
     axios
       .get(`https://makinahgram-api.herokuapp.com/users/${id}`)
@@ -17,9 +21,7 @@ class Profile extends React.Component {
         this.setState({ user });
       })
       .catch(error => this.setState({ error }));
-  }
-
-  // API
+  };
 
   render() {
     if (!this.state.user) {
@@ -51,7 +53,8 @@ class Profile extends React.Component {
               image,
               user,
               created_at,
-              updated_at
+              updated_at,
+              id
             } = post;
             const date = new Date(created_at).toLocaleDateString();
             return (

@@ -1,7 +1,22 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import axios from "axios";
 
 class Post extends React.Component {
+  state = {
+    showPost: true
+  };
+
+  removePost = () => {
+    axios
+      .delete(`https://makinahgram-api.herokuapp.com/posts/${this.props.id}`)
+      .then(response => {
+        this.setState({
+          showPost: false
+        });
+      })
+      .catch(error => console.log(error));
+  };
   render() {
     const {
       id,
@@ -13,6 +28,9 @@ class Post extends React.Component {
       updated
     } = this.props;
 
+    if (this.state.showPost === false) {
+      return null;
+    }
     return (
       <div className="post-container">
         <header className="post-info">
@@ -27,6 +45,9 @@ class Post extends React.Component {
         <div className="image-container">
           <img src={image} className="post-image" />
         </div>
+        <button className="remove-post" onClick={this.removePost}>
+          Remove
+        </button>
       </div>
     );
   }

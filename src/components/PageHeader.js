@@ -1,5 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
+import CreatePostButton from "./CreatePostButton";
 
 const PageHeader = () => {
   return (
@@ -10,6 +11,7 @@ const PageHeader = () => {
       <NavLink to="/" className="page-name">
         <h1>Makinahgram</h1>
       </NavLink>
+      <CreatePostButton />
       <NavLink
         exact
         to="/"

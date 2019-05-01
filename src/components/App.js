@@ -7,6 +7,7 @@ import PageFooter from "./PageFooter";
 import Posts from "./Posts";
 import "../style.css";
 import Spinner from "./Spinner";
+import CreatePost from "./CreatePost";
 
 class App extends React.Component {
   state = {
@@ -15,13 +16,17 @@ class App extends React.Component {
   };
 
   componentDidMount() {
+    this.getPosts();
+  }
+
+  getPosts = () => {
     axios
       .get("https://makinahgram-api.herokuapp.com/posts")
       .then(response => {
         this.setState({ posts: response.data });
       })
       .catch(error => this.setState({ error }));
-  }
+  };
 
   render() {
     if (this.state.posts.length === 0) {
@@ -34,9 +39,25 @@ class App extends React.Component {
           <Route
             exact
             path="/"
-            render={props => <Posts {...props} posts={this.state.posts} />}
+            render={props => (
+              <Posts
+                {...props}
+                posts={this.state.posts}
+                key={props.location.pathname}
+              />
+            )}
           />
           <Route path="/users/:id" render={props => <Profile {...props} />} />
+          <Route
+            path="/new-post"
+            render={props => (
+              <CreatePost
+                {...props}
+                posts={this.state.posts}
+                getPosts={this.getPosts}
+              />
+            )}
+          />
         </Switch>
         <PageFooter />
       </div>
