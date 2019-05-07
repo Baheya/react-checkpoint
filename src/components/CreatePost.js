@@ -21,7 +21,7 @@ class CreatePost extends React.Component {
     })
       .then(response => {
         this.props.getPosts();
-        this.setState({ input: "" });
+        this.props.handleClose();
       })
       .catch(error => console.log(error));
   };

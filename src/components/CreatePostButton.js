@@ -16,7 +16,11 @@ class CreatePostButton extends React.Component {
   render() {
     return (
       <div className="new-post-link">
-        <Modal show={this.state.show} handleClose={this.hideModal} />
+        <Modal
+          show={this.state.show}
+          handleClose={this.hideModal}
+          getPosts={this.props.getPosts}
+        />
         <button onClick={this.showModal}>Post Something New!</button>
       </div>
     );

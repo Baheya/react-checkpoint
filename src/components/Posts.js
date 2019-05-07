@@ -26,6 +26,7 @@ class Posts extends React.Component {
               user={user_id}
               created={date}
               updated={updated_at}
+              getPosts={this.props.getPosts}
             />
           );
         })}

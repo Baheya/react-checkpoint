@@ -2,7 +2,7 @@ import React from "react";
 import { NavLink } from "react-router-dom";
 import CreatePostButton from "./CreatePostButton";
 
-const PageHeader = () => {
+const PageHeader = props => {
   return (
     <header className="page-header">
       <NavLink to="/" className="page-logo">
@@ -11,7 +11,7 @@ const PageHeader = () => {
       <NavLink to="/" className="page-name">
         <h1>Makinahgram</h1>
       </NavLink>
-      <CreatePostButton />
+      <CreatePostButton getPosts={props.getPosts} />
       <NavLink
         exact
         to="/"

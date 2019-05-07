@@ -34,7 +34,7 @@ class App extends React.Component {
     }
     return (
       <div>
-        <PageHeader />
+        <PageHeader getPosts={this.getPosts} />
         <Switch>
           <Route
             exact
@@ -44,6 +44,7 @@ class App extends React.Component {
                 {...props}
                 posts={this.state.posts}
                 key={props.location.pathname}
+                getPosts={this.getPosts}
               />
             )}
           />
