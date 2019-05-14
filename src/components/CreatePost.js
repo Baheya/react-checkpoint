@@ -14,14 +14,12 @@ class CreatePost extends React.Component {
   };
 
   handlePostRequest = e => {
-    e.preventDefault();
     Axios.post("https://makinahgram-api.herokuapp.com/posts", {
       user_id: 1,
       image: `${this.state.input}`
     })
       .then(response => {
         this.props.getPosts();
-        this.props.handleClose();
       })
       .catch(error => console.log(error));
   };
